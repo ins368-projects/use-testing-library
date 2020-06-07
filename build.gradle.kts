@@ -11,7 +11,7 @@ plugins {
   id("org.jetbrains.kotlin.jvm") version "1.3.72"
   id("org.jetbrains.dokka") version "0.10.0"
   id("com.adarshr.test-logger") version "2.0.0"
-  application
+  application // Enables the app to be runned as an app.
 }
 
 repositories {
@@ -40,5 +40,5 @@ tasks.dokka {
 }
 
 application {
-  mainClassName = "range.testing.RangeKt"
+  mainClassName = "range.testing.RangeKt" // It's the entry point to execute the app.
 }
