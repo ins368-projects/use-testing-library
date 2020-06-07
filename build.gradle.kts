@@ -4,3 +4,5 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
+description = "Implementation of 10 methods for the class Range"
+version = "1.0"
