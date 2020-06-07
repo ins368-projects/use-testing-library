@@ -10,6 +10,7 @@ version = "1.0"
 plugins {
   id("org.jetbrains.kotlin.jvm") version "1.3.72"
   id("org.jetbrains.dokka") version "0.10.0"
+  id("com.adarshr.test-logger") version "2.0.0"
   application
 }
 
