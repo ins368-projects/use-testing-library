@@ -1,3 +1,5 @@
+package range.testing
+
 class Range(range: String) {
   val start: Int;
   val end: Int;
@@ -140,7 +142,7 @@ fun main() {
 
   //val range2 = Range("(10, 22)");
   //val array2 = Array(4) { i -> 18 + i };
-  /println(array2.toList());
+  //println(array2.toList());
   //println(range2.contains(array2));
 
   //val range3 = Range("(5, 10)");
@@ -266,4 +268,6 @@ fun main() {
   println(range2.notEquals("[4, 8]"));
 }
 
-/
+fun main(args: Array<String>) {
+  println("Hello, world!")
+}

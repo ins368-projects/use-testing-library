@@ -6,3 +6,27 @@
  */
 description = "Implementation of 10 methods for the class Range"
 version = "1.0"
+
+plugins {
+  id("org.jetbrains.kotlin.jvm") version "1.3.72"
+  application
+}
+
+repositories {
+  // Use jcenter for resolving dependencies.
+  // You can declare any Maven/Ivy/file repository here.
+  jcenter()
+}
+
+dependencies {
+  // Align versions of all Kotlin components
+  implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+
+  // Use the Kotlin JDK 8 standard library.
+  implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+}
+
+
+application {
+  mainClassName = "range.testing.RangeKt"
+}
