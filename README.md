@@ -37,13 +37,12 @@ The author of this repository is Mikhael Santos Fernández (1088621).
 
 ## About TDD
 
-TDD or Test Driven Development is a test methodology that enfizies on testing first and making the production code after. The workflow in this methodology consists on basically two steps:
+TDD or Test Driven Development is a test methodology that emphasizes testing first and making the production code after. The workflow in this methodology consists of basically repeating the following two steps until there is no more code to write:
 
 1. Make a test of a function or class that is not already implemented.
 2. Write the implementation code.
-3. Repeat until there are no more testing elements.
 
-## Some commands description
+## Useded Gradle commands
 
 - `gradle test`: It's to execute tests.
 - `gradle build`: Assembles and tests this project. Also create a serie of documents including tests in `build/reports/tests/test/index.html`.
