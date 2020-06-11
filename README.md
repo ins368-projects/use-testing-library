@@ -42,7 +42,7 @@ TDD or Test Driven Development is a test methodology that emphasizes testing fir
 1. Make a test of a function or class that is not already implemented.
 2. Write the implementation code.
 
-## Useded Gradle commands
+## Used Gradle commands
 
 - `gradle test`: It's to execute tests.
 - `gradle build`: Assembles and tests this project. Also create a serie of documents including tests in `build/reports/tests/test/index.html`.
