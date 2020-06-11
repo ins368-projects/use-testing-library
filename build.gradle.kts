@@ -4,6 +4,8 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 description = "Implementation of 10 methods for the class Range"
 version = "1.0"
 
@@ -11,13 +13,14 @@ plugins {
   id("org.jetbrains.kotlin.jvm") version "1.3.72"
   id("org.jetbrains.dokka") version "0.10.0"
   id("com.adarshr.test-logger") version "2.0.0"
+
   application // Enables the app to be runned as an app.
 }
 
 repositories {
   // Use jcenter for resolving dependencies.
   // You can declare any Maven/Ivy/file repository here.
-  jcenter()
+  mavenCentral()
 }
 
 dependencies {
@@ -32,6 +35,9 @@ dependencies {
 
   // Use the Kotlin JUnit integration.
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+
+  // New TEsting.
+  testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
 }
 
 tasks.dokka {    
@@ -41,4 +47,16 @@ tasks.dokka {
 
 application {
   mainClassName = "range.testing.RangeKt" // It's the entry point to execute the app.
+}
+
+tasks.test {
+	useJUnitPlatform()
+	testLogging {
+		events("passed", "skipped", "failed")
+	}
+}
+
+// config JVM target to 1.8 for kotlin compilation tasks
+tasks.withType<KotlinCompile>().configureEach {
+	kotlinOptions.jvmTarget = "1.8"
 }
