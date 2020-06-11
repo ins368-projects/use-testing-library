@@ -60,4 +60,8 @@ class Range(range: String) {
   fun doesNotContains(numbers: Array<Int>): Boolean {
     return !contains(numbers)
   }
+
+  fun getAllPoints(): Array<Int> {
+    return (start..end).toList().toTypedArray()
+  }
 }

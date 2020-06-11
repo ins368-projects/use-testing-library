@@ -78,7 +78,25 @@ class RangeTest {
     assertEquals(expectedResult, range.doesNotContains(points))
   }
 
+  @DisplayName("getAllPoints test")
+  @ParameterizedTest(name = "''{0}'' includes points: '{'{1}'}'")
+  @CsvSource(
+    "'[1, 5]', '1,2,3,4,5'",
+    "'(-6, 3)', '-5,-4,-3,-2,-1,0,1,2'",
+    "'[3, 3]', '3'",
+    "'(3, 3)', ''"
+  )
+  fun getAllPointsTest(givenRange: String, pointsInString: String) {
+    val range: Range = Range(givenRange)
+    val expectedPoints: Array<Int> = numberStringListToIntArray(pointsInString)
+
+    assertEquals(true, range.getAllPoints() contentEquals expectedPoints)
+  }
+
   private fun numberStringListToIntArray(stringArray: String): Array<Int> {
-    return (stringArray.split(",").map { it.toInt() }).toTypedArray()
+    if(stringArray.length > 0)
+      return (stringArray.split(",").map { it.toInt() }).toTypedArray()
+    else
+      return Array<Int>(0) { it }
   }
 }
