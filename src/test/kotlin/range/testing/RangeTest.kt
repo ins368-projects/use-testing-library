@@ -7,16 +7,27 @@ import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.api.Test
 
 class RangeTest {
-  // Crear test.
-  var range: Range? = null
-
   @ParameterizedTest()
-  @ValueSource(strings = arrayOf("[1, 7]", "(0, 8)"))
-  fun testConstructor(range: String) {
-    println("range: $range")
-    this.range = Range(range)
+  @ValueSource(strings = arrayOf("[1, 7];1;7", "(0, 8);1;7"))
+  fun constructorTest(query: String) {
+    val parts: Array<String> = query.split(";").toTypedArray()
 
-    assertEquals(1, this.range?.start, "expect range.start equals 1")
-    assertEquals(7, this.range?.end, "expect range.end equals 7")
+    val stringRange: String = parts[0]
+    val expectedStart: Int = parts[1].toInt()
+    val expectedEnd: Int = parts[2].toInt()
+
+    val range = Range(stringRange)
+
+    assertEquals(
+      expectedStart,
+      range.start,
+      "expect the start point of the range equals $expectedStart"
+    )
+
+    assertEquals(
+      expectedEnd,
+      range.end,
+      "expect the end point of the range equals $expectedEnd"
+    )
   }
 }
