@@ -20,7 +20,7 @@ class Range(range: String) {
 
       val thereAreValidRangeCharacters = firstCharacterIsRangeCharacter && secondCharacterIsRangeCharacter;
       if(!thereAreValidRangeCharacters) {
-        throw IllegalArgumentException("El rango especificado no tiene el formato adecuado. Debe usar los síbolos '[]' o '()' para denotarlo");
+        throw IllegalArgumentException("El rango especificado no tiene el formato adecuado. Debe usar los síbolos '[]' o '()' para denotarlo.");
       } else {
         try {
           val first = filterNumbersRegex.replace(firstPart, "").toInt();
@@ -41,7 +41,23 @@ class Range(range: String) {
         }
       }
     } else {
-      throw IllegalArgumentException("El rango especificado no tiene el formato adecuado. Debe separarse sus elementos usando ','.")
+      throw IllegalArgumentException("El rango especificado no tiene el formato adecuado. Debe separarse sus elementos usando comas.")
     }
+  }
+
+  fun contains(numbers: Array<Int>): Boolean {
+    if(numbers.size == 0)
+      return false
+
+    val rangePoints: IntRange = start..end
+    for(number in numbers)
+      if(!(number in rangePoints))
+        return false
+
+    return true
+  }
+
+  fun doesNotContains(numbers: Array<Int>): Boolean {
+    return !contains(numbers)
   }
 }
