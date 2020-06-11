@@ -68,4 +68,9 @@ class Range(range: String) {
   fun endPoints(): Array<Int> {
     return arrayOf(start, end)
   }
+
+  fun overlapsRange(indicatedRange: String): Boolean {
+    val range = Range(indicatedRange);
+    return if(end >= range.start) true else false
+  }
 }

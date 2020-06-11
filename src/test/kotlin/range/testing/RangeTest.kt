@@ -108,6 +108,20 @@ class RangeTest {
     assertEquals(true, range.endPoints() contentEquals expectedPoints)
   }
 
+  @DisplayName("overlapsRange test")
+  @ParameterizedTest(name = "{0} overlaps {1} is {2}")
+  @CsvSource(
+    "'[3, 8]', '[3, 8]', true",
+    "'(5, 10)', '[3, 10]', true",
+    "'[1, 4]', '[5, 8]', false",
+    "'(2, 7)', '(7, 15)', false"
+  )
+  fun overlapsRange(givenRange: String, evaluationRange: String, expectedResult: Boolean) {
+    val range = Range(givenRange)
+
+    assertEquals(expectedResult, range.overlapsRange(evaluationRange))
+  }
+
   private fun numberStringListToIntArray(stringArray: String): Array<Int> {
     if(stringArray.length > 0)
       return (stringArray.split(",").map { it.toInt() }).toTypedArray()
