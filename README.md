@@ -1,16 +1,49 @@
 # H5 - Use testing library with TDD methodology
 
-## Statement
-
 Do the same as H4 but using a testing library and TDD as metology.
 
-## TDD's rules
+## Getting Started
 
-1. You are not allowed to write any production code unless it is to make a failing unit test pass.
-2. You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures.
-3. You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Commands
+### Prerequisites
+
+This is a Kotlin project. In order to run the project, you need to have been already installed the following technologies:
+
+1. Install [Java](https://www.java.com/es/download/).
+2. Install [JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+3. Install [Kotlin](https://kotlinlang.org/docs/tutorials/command-line.html)
+4. Install [Gradle](https://gradle.org/install/).
+
+### Build the library
+
+1. Make a clone of the repository.
+2. Locate in the project directory and run:
+    ```bash
+    gradle build
+    ```
+
+## Running the tests
+
+To run the tests you only need to execute the following command:
+
+```bash
+gradle test
+```
+
+## Author
+
+The author of this repository is Mikhael Santos Fernández (1088621).
+
+## About TDD
+
+TDD or Test Driven Development is a test methodology that enfizies on testing first and making the production code after. The workflow in this methodology consists on basically two steps:
+
+1. Make a test of a function or class that is not already implemented.
+2. Write the implementation code.
+3. Repeat until there are no more testing elements.
+
+## Some commands description
 
 - `gradle test`: It's to execute tests.
 - `gradle build`: Assembles and tests this project. Also create a serie of documents including tests in `build/reports/tests/test/index.html`.
