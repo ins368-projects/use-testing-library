@@ -64,4 +64,8 @@ class Range(range: String) {
   fun getAllPoints(): Array<Int> {
     return (start..end).toList().toTypedArray()
   }
+
+  fun endPoints(): Array<Int> {
+    return arrayOf(start, end)
+  }
 }

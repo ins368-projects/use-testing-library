@@ -93,6 +93,21 @@ class RangeTest {
     assertEquals(true, range.getAllPoints() contentEquals expectedPoints)
   }
 
+  @DisplayName("endPoints test")
+  @ParameterizedTest(name = "''{0}'' has endpoints: '{'{1}'}'")
+  @CsvSource(
+    "'[1, 5]', '1,5'",
+    "'(4, 8)', '5,7'",
+    "'[10, 3]', '10,3'",
+    "'(3, 10)', '4,9'"
+  )
+  fun endPointsTest(givenRange: String, pointsInString: String) {
+    val range: Range = Range(givenRange)
+    val expectedPoints: Array<Int> = numberStringListToIntArray(pointsInString)
+
+    assertEquals(true, range.endPoints() contentEquals expectedPoints)
+  }
+
   private fun numberStringListToIntArray(stringArray: String): Array<Int> {
     if(stringArray.length > 0)
       return (stringArray.split(",").map { it.toInt() }).toTypedArray()
