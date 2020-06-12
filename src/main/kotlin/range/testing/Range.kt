@@ -61,6 +61,22 @@ class Range(range: String) {
     return !contains(numbers)
   }
 
+  fun containsRange(range: String): Boolean {
+    val indicatedRange = Range(range);
+    val startsInRange = indicatedRange.start >= start && indicatedRange.start <= end;
+    val endsInRange = indicatedRange.end <= end && indicatedRange.end >= start;
+
+    val elementsAreContained = startsInRange && endsInRange;
+    if(elementsAreContained)
+      return true;
+    else
+      return false;
+  }
+
+  fun doesNotContainsRange(range: String): Boolean {
+    return !containsRange(range);
+  }
+
   fun getAllPoints(): Array<Int> {
     return (start..end).toList().toTypedArray()
   }
@@ -73,4 +89,18 @@ class Range(range: String) {
     val range = Range(indicatedRange);
     return if(end >= range.start) true else false
   }
+
+  fun equals(range: String): Boolean {
+    val indicatedRange = Range(range);
+
+    if(indicatedRange.start == start && indicatedRange.end == end)
+      return true;
+    else
+      return false;
+  }
+
+  fun notEquals(range: String): Boolean {
+    return !equals(range)
+  }
 }
+
